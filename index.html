@@ -690,9 +690,11 @@ and we grow together.</p>
 
         function scrollFunction() {
           if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("movetop").style.display = "block";
-          } else {
+           document.getElementById("movetop").style.display = "block";
+            document.querySelector('.logo').src = './assets/images/4321.png'; 
+          }  else {
             document.getElementById("movetop").style.display = "none";
+             document.querySelector('.logo').src = './assets/images/2010-removebg-preview.png';
           }
         }
 
