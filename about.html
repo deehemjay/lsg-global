@@ -10,97 +10,104 @@ Author URL: http://w3layouts.com
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Web service - Business Category Bootstrap Responsive Website Template - About : W3Layouts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="assets/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="preload" as="image" href="./assets/images/slide1.jpg">
+<link rel="preload" as="image" href="./assets/images/slide2.jpg">
+<link rel="preload" as="image" href="./assets/images/slide3.jpg">
     
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+
+    <style>
+  /* Custom small arrow */
+  .no-arrow::after { display: none; }
+  .fs-10 { font-size: 0.7rem; }
+</style>
+
   </head>
   <body>
 <!--header-->
 <header id="site-header" class="fixed-top">
   <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-dark stroke">
-          <!-- <h1><a class="navbar-brand" href="index.html">
-              Web service
-              </a></h1> -->
-              <a class="navbar-brand" href="index.html">
-    <img src='./assets/images/lsgnew.png' alt="Your logo" title="Your logo" style=" width: 100PX; height: 50PX; " class="logo"/>
-</a>
-          <!-- if logo is image enable this   
-<a class="navbar-brand" href="#index.html">
-    <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-</a> -->
-          <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-              data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-              <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-              </span>
-          </button>
+    <nav class="navbar navbar-expand-lg navbar-dark stroke">
+      
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/images/lsgnew.png" alt="Your logo" title="Your logo" style="width: 100px; height: 50px;" class="logo" />
+      </a>
 
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav ml-auto mr-5">
-                  <li class="nav-item @@home__active">
-                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item active">
-                      <a class="nav-link" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item @@services__active">
-                      <a class="nav-link" href="services.html">Services</a>
-                  </li>
-                  <li class="nav-item @@blog__active">
-                      <a class="nav-link" href="services.html">Blog</a>
-                  </li>
-                  <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="contact.html">Contact</a>
-                  </li>
-                  <nav class="ml-lg-3">
-                      <!-- <div class="search-bar">
-                          <form action="#" method="GET" class="search">
-                              <input type="search" class="search__input" name="search"
-                                  placeholder="Search here.." onload="equalWidth()" required>
-                              <span class="fa fa-search search__icon"></span>
-                          </form>
-                      </div> -->
-                  </nav>
-              </ul>
-          </div>
-          <!-- toggle switch for light and dark theme -->
+      <!-- Toggler -->
+      <button class="navbar-toggler bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-          <!-- <div class="mobile-position">
-              <nav class="navigation">
-                  <div class="theme-switch-wrapper">
-                      <label class="theme-switch" for="checkbox">
-                          <input type="checkbox" id="checkbox">
-                          <div class="mode-container py-1">
-                              <i class="gg-sun"></i>
-                              <i class="gg-moon"></i>
-                          </div>
-                      </label>
-                  </div>
-              </nav>
-          </div> -->
-          <!-- //toggle switch for light and dark theme -->
-      </nav>
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          <li class="nav-item @@home__active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+
+          <!-- Services Dropdown -->
+          <li class="nav-item dropdown @@services__active">
+            <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown"  role="button" aria-expanded="false">
+              Services
+              <i class="fas fa-chevron-down fs-10 text-white"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="pricing.html">Hire Us</a></li>
+            </ul>
+          </li>
+
+          <!-- Blog Dropdown -->
+          <li class="nav-item dropdown @@blog__active">
+            <a class="nav-link dropdown-toggle" href="blog.html" id="blogDropdown" role="button"  aria-expanded="false">
+              Blog
+              <i class="fas fa-chevron-down fs-10 text-white"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+              <li><a class="dropdown-item" href="carrers.html">Careers</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item @@contact__active">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
   </div>
 </header>
+
 <!--/header-->
 <!-- about breadcrumb -->
 <section class="w3l-about-breadcrumb">
-    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 pt-5 pb-4">
-        <div class="container pt-lg-5 pt-md-3 py-lg-4 pb-md-3">
-            <h2 class="title">About Us</h2>
-            <ul class="breadcrumbs-custom-path mt-2">
-                <li><a href="index.html">Home</a></li>
-                <li class="mx-2">/ </li>
-                <li class="active"> About Us </li>
-            </ul>
-        </div>
+  <div class="breadcrumb-bg abouting overlay-container py-sm-5 pt-5 pb-4 h-25">
+    <div class="container-fluid pt-lg-5 pt-md-3 py-lg-4 pb-md-3" style="display: grid; place-items: center;">
+      <h2 class="title mb-5" style="font-weight: 900; font-size: 4vw;">About Us</h2>
     </div>
+  </div>
 </section>
+
+
 <!-- //about breadcrumb -->
 <!-- about page about section -->
 <section class="w3l-aboutblock1" id="about">
@@ -479,6 +486,9 @@ We’re here to transform the way you show up in the marketplace, helping you st
       });
     });
   </script>
+
+ 
+
   <!--//MENU-JS-->
 
   <!-- disable body scroll which navbar is in active -->
@@ -494,6 +504,10 @@ We’re here to transform the way you show up in the marketplace, helping you st
   <!--bootstrap-->
   <script src="assets/js/bootstrap.min.js"></script>
   <!-- //bootstrap-->
+   
+  <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   </body>
 
