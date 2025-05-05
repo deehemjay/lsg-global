@@ -473,64 +473,355 @@ display: none !important;
 </style>
 
 
+    <style>
+        /* Component-specific styles - won't affect rest of page */
+        .services-component {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* or set a fixed height like 800px if preferred */
+            overflow: hidden;
+            isolation: isolate; /* Contains the component's stacking context */
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 100%;
+        }
+        
+        .service-box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .service-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+            transition: background-color 0.3s ease;
+        }
+        
+        .service-box:hover::before {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hover-message {
+            opacity: 0;
+            font-size: 16px;
+            font-weight: normal;
+            margin-top: 10px;
+            height: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .service-box:hover .hover-message {
+            opacity: 1;
+            height: auto;
+        }
+        
+        .services-bg-holder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .services-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .services-bg.active {
+            opacity: 1;
+        }
+    </style>
+
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+    }
+
+    .case-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2rem;
+      background-color: #000;
+    }
+
+    .background-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+      transition: background-image 1.2s ease-in-out;
+      filter: brightness(0.4);
+    }
+
+    .sticky-left,
+    .slider-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+
+    .sticky-left {
+      width: 100%;
+      max-width: 300px;
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+      padding-right: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 150px;
+      margin-bottom: 2rem;
+    }
+
+    .sticky-left h4 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .sticky-left p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .btn-style {
+      background-color: #ff668a;;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-style:hover {
+      background-color: #ff668a;;
+    }
+
+    .slider-wrapper {
+      width: calc(100% - 300px);
+      overflow-x: auto;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      padding-left: 1rem;
+    }
+
+    .slider-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider-wrapper {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .case-card {
+      flex: 0 0 auto;
+      width: 250px;
+      height: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .case-card:hover {
+      transform: scale(1.05);
+    }
+
+    .case-card img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+    }
+
+    .case-card .content {
+      padding: 1rem;
+    }
+
+    .case-card .content h5 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .case-card .content p {
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .case-section {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .sticky-left {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding-right: 0;
+        text-align: center;
+        align-items: center;
+      }
+
+      .slider-wrapper {
+        width: 100%;
+        padding-left: 0;
+      }
+
+      .slider-track {
+        justify-content: center;
+      }
+
+      .case-card {
+        width: 200px;
+        height: 500px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .case-card {
+        width: 160px;
+        height: 400px;
+      }
+
+      .sticky-left h4 {
+        font-size: 1.5rem;
+      }
+
+      .sticky-left p {
+        font-size: 0.95rem;
+      }
+
+      .btn-style {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+
+
   </head>
   <body>
 <!--header-->
 <header id="site-header" class="fixed-top">
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark stroke">
-      
-      <!-- Brand -->
-      <a class="navbar-brand" href="index.html">
-        <img src="./assets/images/lsgnew.png" alt="Your logo" title="Your logo" style="width: 100px; height: 50px;" class="logo" />
-      </a>
+   <nav class="navbar navbar-expand-lg navbar-dark stroke">
+  <div class="container-fluid position-relative">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html">
+      <img src="./assets/images/lsgnew.png" alt="Your logo" title="Your logo" style="width: 100px; height: 50px;" class="logo" />
+    </a>
 
-      <!-- Toggler -->
-      <button class="navbar-toggler bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- Toggler -->
+    <button class="navbar-toggler bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
 
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">HOME</a>
+        </li>
 
-          <li class="nav-item @@about__active">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
+        <li class="nav-item @@about__active">
+          <a class="nav-link" href="about.html">ABOUT</a>
+        </li>
+        
+        <li class="nav-item @@cases__active">
+          <a class="nav-link" href="case-studies.html">CASE STUDIES</a>
+        </li>
 
-          <!-- Services Dropdown -->
-          <li class="nav-item dropdown @@services__active">
-            <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown"  role="button" aria-expanded="false">
-              Services
-              <i class="fas fa-chevron-down fs-10 text-white"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="pricing.html">Hire Us</a></li>
-            </ul>
-          </li>
+        <!-- Services Dropdown -->
+        <li class="nav-item dropdown @@services__active">
+          <a class="nav-link" href="services.html" id="servicesDropdown" role="button"aria-expanded="false">
+            SERVICES
+            <i class="fas fa-chevron-down fs-10"></i>
+          </a>
+          <ul class="dropdown-menu text-center text-lg-start" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" href="pricing.html">HIRE US</a></li>
+          </ul>
+        </li>
 
-          <!-- Blog Dropdown -->
-          <li class="nav-item dropdown @@blog__active">
-            <a class="nav-link dropdown-toggle" href="blog.html" id="blogDropdown" role="button"  aria-expanded="false">
-              Blog
-              <i class="fas fa-chevron-down fs-10 text-white"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-              <li><a class="dropdown-item" href="carrers.html">Careers</a></li>
-            </ul>
-          </li>
+        <!-- Blog Dropdown -->
+        <li class="nav-item dropdown @@blog__active">
+          <a class="nav-link" href="blog.html" id="blogDropdown" role="button" aria-expanded="false">
+            BLOG
+            <i class="fas fa-chevron-down fs-10 "></i>
+          </a>
+          <ul class="dropdown-menu text-center text-lg-start" aria-labelledby="blogDropdown">
+            <li><a class="dropdown-item" href="carrers.html">CARRERS</a></li>
+          </ul>
+        </li>
 
-          <li class="nav-item @@contact__active">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
+        <li class="nav-item @@contact__active">
+          <a class="nav-link" href="contact.html">CONTACT</a>
+        </li>
 
-        </ul>
-      </div>
-    </nav>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   </div>
 </header>
 
@@ -542,13 +833,14 @@ display: none !important;
 <!-- //banner section -->
 
 <div class="new_home-banner">
+
   <div class="custom-slider" id="customSlider">
     <div class="slides active">
       <div class="card">
         <div class="row">
           <div class="col-md-7">
             <div class="card-body">
-              <div class="new_home-banner-head">Digital Marketing That Delivers</div>
+              <div class="new_home-banner-head">Digital Marketing Agency</div>
               <p>We bring your brand to life through data-driven creativity & bold strategies.</p>
               <a href="formpage.html" class="btn btn-primary btn-style mt-md-5 mt-4">Book a session</a>
             </div>
@@ -594,35 +886,114 @@ display: none !important;
  </div>
 </div>
 
+
+
+<!-- Fullscreen background that changes -->
+ <div class="case-section">
+    <div class="background-container" id="bgContainer" style="background-image: url('assets/images/smm1.jpg');"></div>
+
+    <div class="sticky-left">
+      <h4>Featured Projects</h4>
+      <p>Explore our case studies to learn the processes and strategies that drive our creative, culture, and ultimately, our clients’ success</p>
+      <a href="case-studies.html" class="btn btn-primary btn-style mt-md-5 mt-4">Click Here</a>
+    </div>
+
+    <div class="slider-wrapper" id="sliderWrapper">
+      <div class="slider-track" id="sliderTrack">
+        <div class="case-card" data-bg="assets/images/homebg1.jpg">
+          <img src="assets/images/homebg1.jpg" alt="">
+          <div class="content">
+            <h5>Instagram Growth</h5>
+            <p>200% engagement boost</p>
+          </div>
+        </div>
+        <div class="case-card" data-bg="assets/images/homebg2.jpg">
+          <img src="assets/images/homebg2.jpg" alt="">
+          <div class="content">
+            <h5>Facebook Ads</h5>
+            <p>3.5x ROI</p>
+          </div>
+        </div>
+        <div class="case-card" data-bg="assets/images/homebg3.jpg">
+          <img src="assets/images/homebg3.jpg" alt="">
+          <div class="content">
+            <h5>TikTok Campaign</h5>
+            <p>Viral growth</p>
+          </div>
+        </div>
+        <div class="case-card" data-bg="assets/images/homebg4.jpg">
+          <img src="assets/images/homebg4.jpg" alt="">
+          <div class="content">
+            <h5>LinkedIn Leads</h5>
+            <p>B2B conversion</p>
+          </div>
+        </div>
+        <div class="case-card" data-bg="assets/images/homebg5.jpg">
+          <img src="assets/images/homebg5.jpg" alt="">
+          <div class="content">
+            <h5>YouTube Shorts</h5>
+            <p>500k views</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
 <!-- /bottom-grids-->
-<section class="w3l-bottom-grids-6 py-5" id="bottom">
-    <div class="container py-lg-5 py-md-4 py-2">
-       <div class="grids-area-hny main-cont-wthree-fea row">
-    <div class="col-lg-4 col-md-6 grids-feature">
-        <div class="area-box animate-slide-up">
-            <span class="title-small mb-2">01. BRAND IDENTITY AND MANAGEMENT</span>
-            <h4><a href="#feature" class="title-head">Build a bold, memorable, and market-ready brand from the inside out.</a></h4>
-            <p class="">We craft custom proposals tailored to your unique goals and objectives. Every package is built around a comprehensive strategy, detailing deliverables across posts,</p>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-5">
-        <div class="area-box animate-slide-up" style="animation-delay: 0.2s">
-            <span class="title-small mb-2">02. SOCIAL MEDIA MANAGEMENT</span>
-            <h4><a href="#feature" class="title-head">For brands looking to grow, engage, and convert through social media platforms. </a></h4>
-            <p class="">We manage every aspect of your social media content creation, from concept to execution. Whether it's photos, videos, or collaborations with creators,</p>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6 grids-feature mt-lg-0 mt-5">
-        <div class="area-box animate-slide-up" style="animation-delay: 0.4s">
-            <span class="title-small mb-2">03. CONTENT CREATION</span>
-            <h4><a href="#feature" class="title-head">start creating content that will captivate and engage your viewers.</a></h4>
-            <p class="">Content is king—create value, stay consistent, and engage authentically to build trust and drive growth.</p>
-        </div>
-    </div>
+    <!-- This is the component you should copy to your index.html -->
+   <div class="d-flex justify-content-center py-5 px-3">
+  <div class="text-center d-flex flex-column align-items-center text-white w-100 w-md-75 w-lg-50 text-white">
+    <h4 class="text-dark mb-2">Services</h4>
+    <h1 class="display-5 fw-bold mb-3 text-dark">Areas of Focus</h1>
+    <p class="lead w-75">
+      We craft engaging brands and digital experiences that define culture and elevate brands to achieve
+      unprecedented growth. Since day one, our focus has been on providing strategies and services that
+      position our clients to succeed in today’s dynamic, constantly evolving world.
+    </p>
+  </div>
 </div>
-      <div class="d-flex justify-content-end mt-3">  <a href="services.html" class="btn btn-primary btn-style mt-md-5 mt-4">Read More</a></div>
+
+    <div class="services-component mt-5 mb-5">
+
+        <!-- Background holder -->
+        <div class="services-bg-holder">
+            <div class="services-bg active" 
+                 style="background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+            <div class="services-bg" 
+                 style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+            <div class="services-bg" 
+                 style="background-image: url('https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+            <div class="services-bg" 
+                 style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+        </div>
+        
+        <!-- Service boxes -->
+        <div class="services-grid">
+            <div class="service-box" data-bg-index="1">
+                Digital Marketing
+                <div class="hover-message">Boost your online presence with our digital marketing strategies</div>
+            </div>
+            
+            <div class="service-box" data-bg-index="2">
+                Social Media Marketing
+                <div class="hover-message">Engage your audience with targeted social media campaigns</div>
+            </div>
+            
+            <div class="service-box" data-bg-index="3">
+                Website Design + Development
+                <div class="hover-message">Create stunning, functional websites that convert visitors</div>
+            </div>
+            
+            <div class="service-box" data-bg-index="4">
+                Training & Consulting
+                <div class="hover-message">Learn from industry experts with our tailored training programs</div>
+            </div>
+        </div>
     </div>
-</section>
+
+
 <!-- //bottom-grids-->
 <!--/gallery-->
 <section class="digital-marketing-section py-5">
@@ -798,7 +1169,7 @@ display: none !important;
 
 
 <!--  News section -->
-<div class="w3l-news" id="news">
+<!-- <div class="w3l-news" id="news">
     <section id="grids5-block" class="py-5">
       <div class="container py-lg-5 py-md-4 py-2">
         <h3 class="title-big text-center">See what’s going on</h3>
@@ -839,7 +1210,7 @@ display: none !important;
         </div>
       </div>
     </section>
-  </div>
+  </div> -->
   <!--  //News section -->
 <!-- home page about section -->
 <section class="w3l-testimonials" id="testimonials">
@@ -995,7 +1366,7 @@ display: none !important;
 </div>
 
 <!-- home page newsletter -->
-<section class="w3l-bottom py-5" id="newsletter">
+<!-- <section class="w3l-bottom py-5" id="newsletter">
     <div class="container py-md-5 py-md-4 text-center">
       <div class="row">
         <div class="col-lg-9 col-md-10 mx-auto">
@@ -1014,62 +1385,65 @@ display: none !important;
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- //home page newsletter -->
   <!-- footer -->
   <section class="w3l-footer-29-main">
-    <div class="footer-29 py-5">
-      <div class="container py-lg-4">
-        <div class="row footer-top-29">
-          <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
-            <div class="footer-logo mb-4">
-              <a class="navbar-brand" href="index.html">
-             <img src="./assets/images/lsgnew.png" alt="Your logo" title="Your logo" style=" width: 100PX; height: 50PX; " class="logo" /></a>
-            </div>
-            <p>At LSG, we are experts in digital marketing. Our mission is to deliver exceptional services and solutions tailored to meet each client’s various needs.</p>
-            <div class="main-social-footer-29 mt-4">
-              <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
-              <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
-              <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
-              <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+   <div class="footer-29 py-5">
+  <div class="container py-lg-4">
+    <div class="row footer-top-29">
+      <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+        <div class="footer-logo mb-4">
+          <a class="navbar-brand" href="index.html">
+            <img src="./assets/images/lsgnew.png" alt="Your logo" title="Your logo" style="width: 100px; height: 50px;" class="logo"/>
+          </a>
+        </div>
+        <p class="text-white">At LSG, we are experts in digital marketing. Our mission is to deliver exceptional services and solutions tailored to meet each client's various needs.</p>
+        <div class="main-social-footer-29 mt-4">
+          <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+          <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+          <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+          <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+        <ul>
+          <h6 class="footer-title-29 ">Links</h6>
+          <li><a href="about.html" class="text-white">About Us</a></li>
+          <li><a href="blog.html" class="text-white">Blog posts</a></li>
+          <li><a href="pricing.html" class="text-white">Pricing plans</a></li>
+          <li><a href="services.html" class="text-white">Services</a></li>
+          <li><a href="contact.html" class="text-white">Contact us</a></li>
+        </ul>
+      </div>
+      
+     <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5 ">
+  <h6 class="footer-title-29">Contact Us</h6>
+  <ul class="footer-contact-info text-white" style="text-align: left !important;">
+    <li><span class="fa fa-map-marker "></span> Maryland, USA.</li>
+    <li><span class="fa fa-envelope"></span> bookus@lsg<br>global.com</li>
+    <li><span class="fa fa-clock-o"></span> Mon-Fri: 9AM-6PM</li>
+  </ul>
+</div>
 
-            <ul>
-              <h6 class="footer-title-29">Useful Links</h6>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="blog.html"> Blog posts</a></li>
-              <li><a href="#pricing"> Pricing plans</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="contact.html">Contact us</a></li>
-            </ul>
+      
+      <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+        <h6 class="footer-title-29">Newsletter</h6>
+        <p class="text-white">Subscribe to our newsletter for the latest updates and offers.</p>
+        <form class="subscribe-form mt-3">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email Address" required>
           </div>
-          <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
-            <h6 class="footer-title-29">Resources</h6>
-            <ul>
-              <li><a href="#traning">Training</a></li>
-              <li><a href="#marketplace">Marketplace</a></li>
-              <li><a href="#experts">Our Experts</a></li>
-              <li><a href="#platform">Platform</a></li>
-              <li><a href="#customers"> Customers</a></li>
-            </ul>
-
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
-            <h6 class="footer-title-29">Instagram posts</h6>
-            <div class="post1">
-              <a href="#url" class="post-title">Practice Safe Design. Always Use...</a>
-              <p>We work for our clients to provide them with the best service</p>
-            </div>
-            <div class="post1 mt-4">
-              <a href="#url" class="post-title">How to Start when You... </a>
-              <p>We work for our clients to provide them with the best service</p>
-            </div>
-          </div>
+          <button type="submit" class="btn btn-primary btn-style mt-2">Subscribe</button>
+        </form>
+        <div class="mt-3">
+          <p>We respect your privacy. Unsubscribe at any time.</p>
         </div>
       </div>
     </div>
+  </div>
+</div>
     <!-- copyright -->
     <section class="w3l-copyright text-center">
       <div class="container">
@@ -1141,7 +1515,7 @@ display: none !important;
     })
   })
 </script>
-//script for tesimonials carousel slider
+<!-- //script for tesimonials carousel slider -->
 
   <!-- faq -->
   <script>
@@ -1161,33 +1535,6 @@ display: none !important;
 
     items.forEach(item => item.addEventListener('click', toggleAccordion));
   </script>
-
-  <!-- <script>
-// Intersection Observer for scroll-triggered animations
-document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                
-                // Animate progress bars
-                if (entry.target.querySelector('.progress-bar')) {
-                    const progressBars = entry.target.querySelectorAll('.progress-bar');
-                    progressBars.forEach(bar => {
-                        const width = bar.getAttribute('aria-valuenow') + '%';
-                        bar.style.width = width;
-                    });
-                }
-            }
-        });
-    }, {threshold: 0.2});
-
-    document.querySelectorAll('.js-show-on-scroll').forEach(el => {
-        el.classList.add('js-show-on-scroll');
-        observer.observe(el);
-    });
-});
-</script> -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1314,17 +1661,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!--javascript menu slider end-->
 
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceBoxes = document.querySelectorAll('.service-box');
+            const backgroundImages = document.querySelectorAll('.services-bg');
+            
+            serviceBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    const bgIndex = this.getAttribute('data-bg-index');
+                    
+                    // Hide all background images
+                    backgroundImages.forEach(bg => {
+                        bg.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding background image
+                    if (bgIndex && backgroundImages[bgIndex - 1]) {
+                        backgroundImages[bgIndex - 1].classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 
 
 
 
-  <!--bootstrap-->
-  <script src="assets/js/bootstrap.min.js"></script>
-  <!-- //bootstrap-->
 
-  <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+<!--bootstrap-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- //bootstrap-->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const slider = document.getElementById("sliderWrapper");
+    const track = document.getElementById("sliderTrack");
+    const bgContainer = document.getElementById("bgContainer");
+
+    const cloneCards = () => {
+      const cards = Array.from(track.children);
+      for (let i = 0; i < cards.length; i++) {
+        const clone = cards[i].cloneNode(true);
+        track.appendChild(clone);
+      }
+    };
+
+    cloneCards();
+    cloneCards();
+
+    slider.addEventListener("scroll", () => {
+      const scrollRightEdge = slider.scrollLeft + slider.offsetWidth;
+      const scrollWidth = track.scrollWidth;
+
+      if (scrollRightEdge + 500 >= scrollWidth) {
+        cloneCards();
+      }
+
+      const cards = document.querySelectorAll(".case-card");
+      for (const card of cards) {
+        const rect = card.getBoundingClientRect();
+        if (rect.left >= 0 && rect.left < window.innerWidth * 0.6) {
+          const bg = card.dataset.bg;
+          if (bgContainer.style.backgroundImage !== `url("${bg}")`) {
+            bgContainer.style.backgroundImage = `url("${bg}")`;
+          }
+          break;
+        }
+      }
+    });
+  </script>
 
   
   

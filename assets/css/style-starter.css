@@ -11994,7 +11994,7 @@ h2.title {
 }
 
 .servicing{
-  background-image: url(../images/servicesbg5.jpg);
+  background-image: url(../images/servicebgnew.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -12007,7 +12007,7 @@ h2.title {
 }
 
 .contacting{
-  background-image: url(../images/contactbg.jpg);
+  background-image: url(../images/contactbg2.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -12016,6 +12016,13 @@ h2.title {
   background-image: url(../images/blogbg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+}
+.carrering{
+  background-image: url(../images/newcarrerbg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
