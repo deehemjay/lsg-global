@@ -43,7 +43,13 @@ Author URL: http://w3layouts.com
   <div class="container-fluid position-relative">
     <!-- Brand -->
     <a class="navbar-brand" href="index.html">
-     <img src="./assets/images/header5.png" alt="Your logo" title="Your logo" style="height: 60px;" class="logo" />
+    <img 
+    src="./assets/images/finallsglogoblack.png" 
+    alt="Your Logo" 
+    title="Your Logo" 
+    style="height: 70px; display: block; margin-top: -10px;"
+    class="logo" 
+  />
     </a>
 
     <!-- Toggler -->
@@ -110,7 +116,51 @@ Author URL: http://w3layouts.com
 </div>
     </div>
 </section>
+
+
 <!-- //Contact breadcrumb -->
+
+
+<div class="w3l-faq-block py-5" id="faq">
+    <div class="container py-lg-5">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5">
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button id="accordion-button-1" aria-expanded="true"><span class="accordion-title">What services do you offer?</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion-content">
+                            <p>We offer a full range of digital marketing services, including SEO, social media marketing, Google Ads, content creation, email marketing, and website development.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title"> What industries do you specialize in?</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion-content">
+                            <p>We work across a wide range of industries, including healthcare, e-commerce, real estate, education, and service-based businesses.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Can you create a custom marketing plan for my business?</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion-content">
+                            <p>Absolutely! We tailor every strategy to your industry, target audience, and specific goals to ensure maximum impact.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title"> How do I get started?</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion-content">
+                            <p>Simply reach out to us via our contact form or give us a call! We'll schedule a free consultation to understand your needs and recommend the best path forward.
+
+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-lg-0 mt-sm-5 mt-4">
+                <img src="assets/images/faq.jpg" alt="" class="img-fluid radius-image">
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- contacts -->
 <section class="w3l-contact-7 pt-5" id="contact">
     <div class="contacts-9 pt-lg-5 pt-md-4">
@@ -168,7 +218,7 @@ Author URL: http://w3layouts.com
       <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
         <div class="footer-logo mb-4">
           <a class="navbar-brand" href="index.html">
-            <img src='./assets/images/headerwhite.png' alt="Your logo" title="Your logo" style="width: 100px; height: 50px;" class="logo"/>
+            <img src='./assets/images/finallsglogowhite.png' alt="Your logo" title="Your logo" style="height: 70px; width: 70px; display: block;" class="logo"/>
           </a>
         </div>
         <p class="text-white">At LSG, we are experts in digital marketing. Our mission is to deliver exceptional services and solutions tailored to meet each client's various needs.</p>
@@ -188,6 +238,7 @@ Author URL: http://w3layouts.com
           <li><a href="pricing.html" class="text-white">Pricing plans</a></li>
           <li><a href="services.html" class="text-white">Services</a></li>
           <li><a href="contact.html" class="text-white">Contact us</a></li>
+          <li><a href="carrers.html" class="text-white">Carrers</a></li>
         </ul>
       </div>
       
@@ -238,10 +289,10 @@ Author URL: http://w3layouts.com
         function scrollFunction() {
           if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
            document.getElementById("movetop").style.display = "block";
-            document.querySelector('.logo').src =  './assets/images/headerblack1.png'; 
+            document.querySelector('.logo').src =  './assets/images/finallsglogoblack.png'; 
           }  else {
             document.getElementById("movetop").style.display = "none";
-             document.querySelector('.logo').src = './assets/images/headerwhite.png';
+             document.querySelector('.logo').src = './assets/images/finallsglogowhite.png';
           }
         }
 

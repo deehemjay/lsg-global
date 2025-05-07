@@ -3107,7 +3107,7 @@ input[type="button"].btn-block {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.3125rem;
+  /* padding-top: 0.3125rem; */
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
   font-size: 1.25rem;
@@ -10607,7 +10607,8 @@ header.nav-fixed {
   padding: 0;
   line-height: 36px;
   border-radius: 35px;
-  transition: 0.3s ease-out; }
+  transition: 0.3s ease-out;
+ }
 
 .w3l-footer-29-main .footer-post a:hover {
   color: #eee; }
@@ -11987,7 +11988,7 @@ h2.title {
 
 
 .abouting{
-  background-image: url(../images/aboutbg4.jpg);
+  background-image: url(../images/abtimg3.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
