@@ -23,7 +23,7 @@ Author URL: http://w3layouts.com
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #ff668a;
+  --primary: #5ff853;
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -9707,7 +9707,33 @@ p.white {
   line-height: 28px;
   font-weight: 600;
   transition: 0.3s ease-in;
-  border-radius: var(--border-radius); }
+  background-color: var(--yellow);
+  border-radius: var(--border-radius);
+border-color: var(--green); }
+
+.button-lefteeee2 {
+  padding: 13px 35px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  transition: 0.3s ease-in;
+  background-color: var(--green);
+  border-color: var(--green);
+  border-radius: 20px;
+  }
+
+.button-lefteeee2:hover {
+  padding: 13px 35px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  transition: 0.3s ease-in;
+  background-color: green;
+  border-color: var(--green);
+  border-radius: 20px;
+  }
 
 .btn-small {
   padding: 10px 30px;
@@ -10899,13 +10925,13 @@ header.nav-fixed {
 
 .w3l-testimonials blockquote q::before {
   font-size: 50px;
-  color: var(--primary-color);
+  color: green;
   display: block;
   font-family: initial; }
 
 .w3l-testimonials.w3l-test blockquote q::before {
   font-size: 50px;
-  color: var(--primary-color);
+  color: green;
   display: inline-block;
   font-family: initial;
   margin-right: 10px; }
