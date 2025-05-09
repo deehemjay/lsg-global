@@ -3074,7 +3074,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #ff668a; }
+  background-color: green; }
 
 .nav-fill .nav-item {
   flex: 1 1 auto;
@@ -9751,7 +9751,7 @@ border-color: var(--green); }
   transition: 0.3s ease-in;
   border-radius: var(--border-radius);
   background-color: #fff;
-  color: var(--primary-color); }
+  color: green; }
 
 .title-big {
   font-size: 44px;
@@ -9996,13 +9996,13 @@ header.active {
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: var(--primary-color); }
+  color: green; }
 
 .navbar-light .navbar-nav .show > .nav-link,
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: var(--primary-color); }
+  color: green; }
 
 .navbar-expand-lg .navbar-nav .nav-link.phone {
   text-transform: capitalize;
@@ -10032,7 +10032,7 @@ a.dropdown-item {
 
 a.dropdown-item.active,
 a.dropdown-item:hover {
-  color: var(--primary-color) !important;
+  color: green !important;
   background: none !important; }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
@@ -10078,7 +10078,7 @@ nav ul li a:hover {
   color: #fff; }
 
 .navbar-dark .navbar-nav .nav-link:focus {
-  color: var(--primary-color); }
+  color: green; }
 
 .dropdown-toggle::after {
   display: none; }
@@ -10092,7 +10092,7 @@ nav ul li a:hover {
   opacity: 0.9; }
 
 .nav-fixed .navbar-expand-lg .navbar-nav li.nav-item.active .nav-link {
-  color: var(--primary-color);
+  color: green;
   opacity: 0.9; }
 
 .nav-fixed .navbar-expand-lg .mode-container i {
@@ -10103,7 +10103,7 @@ nav ul li a:hover {
   color: var(--heading-color); }
 
 .nav-fixed .navbar-expand-lg .navbar-brand span.sub-log {
-  border-top: 8px solid var(--primary-color); }
+  border-top: 8px solid green; }
 
 .dropdown-item:hover, .dropdown-item:focus {
   color: var(--para-color);
@@ -10256,7 +10256,7 @@ header.nav-fixed {
   width: 34px;
   height: 34px;
   display: inline-block;
-  background: var(--primary-color);
+  background: green;
   border-radius: 4px;
   text-align: center; }
 
@@ -10466,7 +10466,7 @@ header.nav-fixed {
   color: var(--heading-color); }
 
 .w3l-bottom-grids-6 h4 a.title-head:hover {
-  color: var(--primary-color); }
+  color: green; }
 
 @media (max-width: 415px) {
   .w3l-bottom-grids-6 h4 a.title-head {
@@ -10484,10 +10484,10 @@ header.nav-fixed {
   color: var(--heading-color); }
 
 .w3l-servicesblock1 h4 a.title-head:hover {
-  color: var(--primary-color); }
+  color: green; }
 
 .w3l-servicesblock1 .grids-feature span.fa {
-  color: var(--primary-color);
+  color: green;
   font-size: 30px;
   margin-bottom: 25px; }
 
@@ -10497,7 +10497,7 @@ header.nav-fixed {
   color: var(--heading-color); }
 
 .w3l-servicesblock1 .area-box a.more:hover {
-  color: var(--primary-color); }
+  color: green; }
 
 .w3l-servicesblock1 .area-box {
   display: grid;
@@ -10525,7 +10525,7 @@ header.nav-fixed {
   letter-spacing: 2px; }
 
 .w3l-footer-29-main a.navbar-brand span.fa {
-  color: var(--primary-color); }
+  color: green; }
 
 .w3l-footer-29-main h6.footer-title-29 {
   font-size: 24px;
@@ -10585,8 +10585,8 @@ header.nav-fixed {
   color: #97a1a9; }
 
 .main-social-footer-29 a:hover {
-  background: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  background: green;
+  border: 1px solid green;
   transition: 0.3s;
   color: #fff;
   opacity: 1; }
@@ -10595,7 +10595,7 @@ header.nav-fixed {
   width: 25px; }
 
 .w3l-copyright .copy-footer-29 a {
-  color: var(--primary-color); }
+  color: green; }
 
 .w3l-copyright .copy-footer-29 a:hover {
   color: #fff; }
@@ -10629,7 +10629,7 @@ header.nav-fixed {
   color: #fff;
   width: 50px;
   height: 50px;
-  background: var(--primary-color);
+  background: green;
   padding: 0;
   line-height: 36px;
   border-radius: 35px;
@@ -10705,7 +10705,7 @@ header.nav-fixed {
   margin-bottom: 10px; }
 
 .w3l-portfolio-8 a.img-title:hover {
-  color: var(--primary-color); }
+  color: green; }
 
 .w3l-portfolio-8 p {
   color: #eee; }
@@ -10743,11 +10743,11 @@ header.nav-fixed {
   outline: none; }
   .accordion button:hover, .accordion button:focus {
     cursor: pointer;
-    color: var(--primary-color); }
+    color: green; }
     .accordion button:hover::after, .accordion button:focus::after {
       cursor: pointer;
-      color: var(--primary-color);
-      border: 1px solid var(--primary-color); }
+      color: green;
+      border: 1px solid green; }
   .accordion button .accordion-title {
     padding: 1em 1.5em 1em 0;
     font-weight: 600;
@@ -10782,7 +10782,7 @@ header.nav-fixed {
       background: currentColor; }
 
 .accordion button[aria-expanded='true'] {
-  color: var(--primary-color); }
+  color: green; }
   .accordion button[aria-expanded='true'] .icon::after {
     width: 0; }
   .accordion button[aria-expanded='true'] + .accordion-content {
@@ -10844,7 +10844,7 @@ header.nav-fixed {
   border-radius: 0.25rem; }
 
 .w3l-servicesblock .progress-bar {
-  background-color: var(--primary-color);
+  background-color: #34f1f7;
   transition: width 0.6s ease; }
 
 .w3l-servicesblock .progress-bar-striped {
@@ -10880,7 +10880,7 @@ header.nav-fixed {
 
 .w3l-bottom input[type="email"]:focus {
   background: #fff;
-  border: 1px solid var(--primary-color);
+  border: 1px solid green;
   box-shadow: none; }
 
 @media only screen and (max-width: 736px) {
@@ -11041,7 +11041,7 @@ header.nav-fixed {
   font-weight: 600; }
 
 .w3l-news .grids5-info h4 a:hover {
-  color: var(--primary-color); }
+  color: green; }
 
 .w3l-news .grids5-info p {
   margin-top: 15px; }
@@ -11057,7 +11057,7 @@ header.nav-fixed {
 
 .w3l-news a.btn-news {
   padding: 0;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid green;
   color: var(--heading-color);
   transition: 0.3s ease-in-out;
   font-weight: 600;
@@ -11398,7 +11398,7 @@ button.owl-next {
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
-  background: var(--primary-color); }
+  background: green; }
 
 @media all and (max-width: 640px) {
   .owl-dots {
@@ -11436,7 +11436,7 @@ h2.title {
   opacity: .9; }
 
 .breadcrumbs-custom-path li a:hover {
-  color: var(--primary-color);
+  color: green;
   opacity: 1; }
 
 .breadcrumbs-custom-path li span.fa {
@@ -11560,7 +11560,7 @@ h2.title {
   font-weight: 600; }
 
 .team-title:hover {
-  color: var(--primary-color); }
+  color: green; }
 
 .overlay {
   background-color: rgba(20, 20, 20, 0.7);
@@ -11629,7 +11629,7 @@ h2.title {
   font-weight: 600; }
 
 .w3l-servicesblock2 .grids5-info h4 a:hover {
-  color: var(--primary-color); }
+  color: green; }
 
 .w3l-servicesblock2 .blog-info {
   padding: 30px 25px;
@@ -11709,7 +11709,7 @@ h2.title {
   .w3l-contact-7 .map-content-9 form input:focus,
   .w3l-contact-7 .map-content-9 form textarea:focus {
     background: none;
-    border: 1px solid var(--primary-color); }
+    border: 1px solid green; }
   .w3l-contact-7 .contacts-sub-9 address h4 {
     margin-bottom: 10px; }
   .w3l-contact-7 .contacts-sub-9 address a {
