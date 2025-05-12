@@ -59,6 +59,19 @@ Author URL: http://w3layouts.com
     -moz-appearance: textfield;
   }
 </style>
+
+ <style>
+  @media (max-width: 768px) {
+    .mobile-only {
+      display: block !important;
+    }
+
+      .big-screen-only{
+      display: none !important;
+    }
+  }
+</style>
+
   </head>
   <body>
 <!--header-->
@@ -78,7 +91,7 @@ Author URL: http://w3layouts.com
       </a>
 
       <!-- Toggler -->
-      <button class="navbar-toggler bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" style="margin-bottom: 20px;">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -105,21 +118,28 @@ Author URL: http://w3layouts.com
               Services
               <i class="fas fa-chevron-down fs-10"></i>
             </a>
-            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="pricing.html">Hire Us</a></li>
-            </ul>
-          </li>
+             <ul class="dropdown-menu text-center text-lg-start big-screen-only" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" href="pricing.html">HIRE US</a></li>
+          </ul>
+        </li>
 
           <!-- Blog Dropdown -->
-          <li class="nav-item dropdown @@blog__active">
-            <a class="nav-link" href="blog.html" id="blogDropdown" role="button"  aria-expanded="false">
-              Blog
-              <i class="fas fa-chevron-down fs-10"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-              <li><a class="dropdown-item" href="carrers.html">Careers</a></li>
-            </ul>
-          </li>
+         <li class="nav-item dropdown @@blog__active">
+          <a class="nav-link" href="blog.html" id="blogDropdown" role="button" aria-expanded="false">
+            BLOG
+            <i class="fas fa-chevron-down fs-10 "></i>
+          </a>
+          <ul class="dropdown-menu text-center text-lg-start big-screen-only" aria-labelledby="blogDropdown">
+            <li><a class="dropdown-item" href="carrers.html">CARRERS</a></li>
+          </ul>
+        </li>
+
+           <li class="nav-item mobile-only @@pricing__active" style="display: none;">
+    <a class="nav-link" href="pricing.html">HIRE US</a>
+  </li>
+  <li class="nav-item mobile-only @@carrers__active" style="display: none;">
+    <a class="nav-link" href="carrers.html">CARRERS</a>
+  </li>
 
           <li class="nav-item @@contact__active">
             <a class="nav-link" href="contact.html">Contact</a>
